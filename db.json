@@ -1,56 +1,163 @@
 {
-  "transfers": [
+  "users": [
     {
       "id": 1,
-      "status": "complete",
-      "originAccount": 111,
-      "targetAccount": 212,
-      "amount": 100.00,
-      "description": "my first transfer",
-      "initiatedAt": "2019-05-20T12:53:38.079-04:00",
-      "completedAt": "2019-05-22T12:53:38.079-04:00",
-      "failedAt": null
+      "firstName": "Aaron",
+      "lastName": "Howard",
+      "transfers": [],
+      "likes": []
     },
     {
       "id": 2,
-      "status": "pending",
-      "originAccount": 95,
-      "targetAccount": 120,
-      "amount": 55.00,
-      "description": "thanks for dinner!",
-      "initiatedAt": "2019-05-23T12:53:38.079-04:00",
-      "completedAt": null,
-      "failedAt": null
+      "firstName": "Cassie",
+      "lastName": "Perez",
+      "transfers": [],
+      "likes": []
+    },
+    {
+      "id": 3,
+      "firstName": "Larry",
+      "lastName": "Smith",
+      "transfers": [],
+      "likes": []
+    },
+
+    {
+      "id": 4,
+      "firstName": "Jean",
+      "lastName": "Sawyer",
+      "transfers": [],
+      "likes": []
+    },
+    {
+      "id": 5,
+      "firstName": "Julie",
+      "lastName": "Nimmo",
+      "transfers": [],
+      "likes": []
     }
   ],
   "accounts": [
     {
-      "id": 111,
-      "first_name": "Jenny",
-      "last_name": "Smith",
-      "account_number": "15305991",
-      "balance": 1200.00
+      "id": 1,
+      "user": 1,
+      "accountNumber": "2080469406",
+      "balance": 120000
     },
     {
-      "id": 211,
-      "first_name": "Richard",
-      "last_name": "Bull",
-      "account_number": "15305991",
-      "balance": 50.00
+      "id": 2,
+      "user": 1,
+      "accountNumber": "4697809130",
+      "balance": 5000
     },
     {
-      "id": 95,
-      "first_name": "Sam",
-      "last_name": "Tully",
-      "account_number": "15305991",
-      "balance": 152.60
+      "id": 3,
+      "user": 2,
+      "accountNumber": "6300148245",
+      "balance": 15260
     },
     {
-      "id": 120,
-      "first_name": "Wendy",
-      "last_name": "Charles",
-      "account_number": "15305991",
-      "balance": 3211.45
+      "id": 4,
+      "user": 3,
+      "accountNumber": "9472141120",
+      "balance": 321145
+    },
+    {
+      "id": 5,
+      "user": 4,
+      "accountNumber": "5500899526",
+      "balance": 210030
+    },
+    {
+      "id": 6,
+      "user": 4,
+      "accountNumber": "8636139744",
+      "balance": 13278
+    },
+    {
+      "id": 7,
+      "user": 5,
+      "accountNumber": "4144654678",
+      "balance": 24500
+    }
+  ],
+  "transfers": [
+    {
+      "id": 1,
+      "status": "complete",
+      "originAccount": 1,
+      "targetAccount": 4,
+      "amount": 10000,
+      "description": "Consider us even >:|",
+      "initiatedAt": "2019-05-20T12:53:38-04:00",
+      "completedAt": "2019-05-22T12:00:00-04:00",
+      "failedAt": null
+    },
+    {
+      "id": 2,
+      "status": "initiated",
+      "originAccount": 1,
+      "targetAccount": 7,
+      "amount": 5500,
+      "description": "Winner, winner...",
+      "initiatedAt": "2019-05-23T12:53:38-04:00",
+      "completedAt": null,
+      "failedAt": null
+    },
+    {
+      "id": 3,
+      "status": "complete",
+      "originAccount": 2,
+      "targetAccount": 5,
+      "amount": 2500,
+      "description": "Thanks for the cut!!",
+      "initiatedAt": "2019-05-04T12:53:38-04:00",
+      "completedAt": "2019-05-06T12:00:00-04:00",
+      "failedAt": null
+    },
+    {
+      "id": 4,
+      "status": "complete",
+      "originAccount": 7,
+      "targetAccount": 5,
+      "amount": 1000,
+      "description": "Splitting the cab",
+      "initiatedAt": "2019-05-10T12:53:38-04:00",
+      "completedAt": "2019-05-12T12:00:00-04:00",
+      "failedAt": null
+    },
+    {
+      "id": 5,
+      "status": "failed",
+      "originAccount": 7,
+      "targetAccount": 5,
+      "amount": 1000,
+      "description": "Drinks :cocktail:",
+      "initiatedAt": "2019-02-10T12:53:38-04:00",
+      "completedAt": null,
+      "failedAt": "2019-02-11T12:00:00-04:00"
+    }
+  ],
+  "likes": [
+    {
+      "id": 1,
+      "user": 2,
+      "transfer": 1
+    },
+    {
+      "id": 2,
+      "user": 4,
+      "transfer": 1
+    },
+    {
+      "id": 3,
+      "user": 4,
+      "transfer": 3
+    },
+    {
+      "id": 4,
+      "user": 1,
+      "transfer": 4
     }
   ]
 }

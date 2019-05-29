@@ -15,10 +15,10 @@
         </div>
         <div class="row mt-5">
           <p>
-            This exercise uses an API, please review the documentation <a href="api-docs.html">here</a>.
+            This exercise uses an API, please review the documentation <a href="api-docs.html" target="_blank">here</a>.
           </p>
           <p>
-            Thank you for your interest in Ellevest! For this exercise, you'll be working to build part of a "Venmo-like" system in two parts. In Part I you'll build the data for a a "social" transactions feed. In Part II, you'll implment a method for sending a new payment through the API. The API referenced above provides endpoints for Transactions, Accounts, Users, and Likes and includes all the information you'll need to successfully complete this exercise. While not truely "live" this API supports GET, POST, and PUT operations for all resources.
+            Thank you for your interest in Ellevest! For this exercise, you'll be working to build part of a "Venmo-like" system of payments between users. In Part I you'll build the data for a "social" payments feed. In Part II, you'll implement a method for sending a new payment through the API. The API referenced above provides endpoints for Transactions, Accounts, Users, and Likes and includes all the information you'll need to successfully complete this exercise. While not truely "live" this API supports GET, POST, and PUT operations for all resources.
           </p>
           <p>
             You may use the language of your choice for this exercise but your implementation should be runnable. The exercise should take you no more than two hours to complete.
@@ -27,18 +27,19 @@
         <div class="row">
           <h2>Part I</h2>
           <p>
-            Using the API, implement a method to build the data for a "social" transactions feed, combining information from whichever resources are necessary. Your method should return an Array of Objects (Hashes, Dictionaries, etc.) with the following information:
+            Using the API, implement a method to build the data for a "social" transactions feed, combining information from whichever API resources are necessary. Transactions with a "failed" status should be excluded from the feed. Your method should return an Array of Objects (Hashes, Dictionaries, etc.) with the following information:
           </p>
         </div>
           <div class="row">
             <pre style="width:100%;">
-              <code class="json">[
+              <code class="json">
+[
   {
     "originUserName": "John Smith",
     "targetUserName": "Sallie Someone",
     "amount": 54.99,
     "description": "For drinks and dinner",
-    "likesCount": 2,
+    "likesCount": 2
   },
   ...
 ]

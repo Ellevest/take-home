@@ -1,0 +1,321 @@
+<html>
+  <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/github.min.css" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <title>Ellevest Take Home</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <style>
+      .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+      }
+
+      .sidebar-sticky {
+        position: relative;
+        top: 0;
+        height: calc(100vh - 48px);
+        padding-top: .5rem;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+      }
+
+      .sidebar .nav-link {
+        font-weight: 500;
+        font-size: 14px;
+        color: #697386;
+      }
+
+      .sidebar .nav-link:hover {
+        color: black;
+      }
+
+      .sidebar .sidebar-heading {
+        color: #a3acb9;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      pre {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+          <div class="sidebar-sticky">
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1">Resources</h6>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link" href="#users">Users</a></li>
+              <li class="nav-item"><a class="nav-link" href="#accounts">Accounts</a></li>
+              <li class="nav-item"><a class="nav-link" href="#transfers">Transfers</a></li>
+              <li class="nav-item"><a class="nav-link" href="#likes">Likes</a></li>
+            </ul>
+          </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="container">
+            <div class="row mt-5">
+              <div class="col">
+                <h3 id="users">Users</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p class="mt-3">
+                  The <code>User</code> object represents users within the system. Users tie together other Resources in the system, including Transfers, Accounts, and Likes.
+                </p>
+              </div>
+              <div class="col">
+                <pre>
+                  <code>
+   GET /users
+  POST /users
+   GET /users/:id
+   PUT /users/:id
+                  </code>
+                </pre>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <p class="mt-3">
+                  <strong>id</strong> <span class="text-secondary">integer</span><br>
+                  Unique identifier for the object.
+                </p>
+                <p class="mt-3">
+                  <strong>firstName</strong> <span class="text-secondary">string</span><br>
+                  The user's first name.
+                </p>
+                <p class="mt-3">
+                  <strong>lastName</strong> <span class="text-secondary">string</span><br>
+                  The user's last name.
+                </p>
+                <p class="mt-3">
+                  <strong>transfers</strong> <span class="text-secondary">list</span><br>
+                  The user's transactions, if any.
+                </p>
+                <p class="mt-3">
+                  <strong>likes</strong> <span class="text-secondary">list</span><br>
+                  The user's likes, if any.
+                </p>
+              </div>
+              <div class="col">
+                <pre>
+                  <code class="json">
+{
+  "id": 1,
+  "firstName": "Jenny",
+  "lastName": "Smith",
+  "accounts": [111],
+  "transfers": [1],
+  "likes": [1, 12]
+}
+                  </code>
+                </pre>
+              </div>
+            </div>
+          </div>
+          <div class="container pt-5">
+            <div class="row mt-5">
+              <div class="col">
+                <h3 id="accounts">Accounts</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p class="mt-3">
+                  The <code>Account</code> object represents bank accounts within the system. These Accounts are owned by Users and used to create Transfers.
+                </p>
+              </div>
+              <div class="col">
+                <pre>
+                  <code>
+   GET /accounts
+  POST /accounts
+   GET /accounts/:id
+   PUT /accounts/:id
+                  </code>
+                </pre>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <p class="mt-3">
+                  <strong>id</strong> <span class="text-secondary">integer</span><br>
+                  Unique identifier for the object.
+                </p>
+                <p class="mt-3">
+                  <strong>user</strong> <span class="text-secondary">integer</span><br>
+                  The ID of the <code>User</code> this object belongs to.
+                </p>
+                <p class="mt-3">
+                  <strong>accountNumber</strong> <span class="text-secondary">string</span><br>
+                  The bank account number.
+                </p>
+                <p class="mt-3">
+                  <strong>balance</strong> <span class="text-secondary">integer</span><br>
+                  The account's balance in cents.
+                </p>
+              </div>
+              <div class="col">
+                <pre>
+                  <code class="json">
+{
+  "id": 13,
+  "user": 1,
+  "accountNumber": "1404291114",
+  "balance": 5000
+}
+                  </code>
+                </pre>
+              </div>
+            </div>
+          </div>
+          <div class="container pt-5">
+            <div class="row mt-5">
+              <div class="col">
+                <h3 id="transfers">Transfers</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p class="mt-3">
+                  The <code>Transfer</code> object represents bank transfers within the system. Transfers are between an origin account, the bank account the funds will be transfered from, and a target account, the bank account funds will be transfered into. The status of a Transfer will initially be <code>'initiated'</code> and updated to <code>'complete'</code> or <code>'failed'</code> depending on the success of the transfer.
+                </p>
+              </div>
+              <div class="col">
+                <pre>
+                  <code>
+   GET /transfers
+  POST /transfers
+   GET /transfers/:id
+   PUT /transfers/:id
+                  </code>
+                </pre>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <p class="mt-3">
+                  <strong>id</strong> <span class="text-secondary">integer</span><br>
+                  Unique identifier for the object.
+                </p>
+                <p class="mt-3">
+                  <strong>status</strong> <span class="text-secondary">string</span><br>
+                  The transfer's status.
+                </p>
+                <p class="mt-3">
+                  <strong>originAccount</strong> <span class="text-secondary">integer</span><br>
+                  The ID of the origin <code>Account</code> for the object.
+                </p>
+                <p class="mt-3">
+                  <strong>targetAccount</strong> <span class="text-secondary">integer</span><br>
+                  The ID of the target <code>Account</code> for the object.
+                </p>
+                <p class="mt-3">
+                  <strong>amount</strong> <span class="text-secondary">integer</span><br>
+                  The transfer's amount in cents.
+                </p>
+                <p class="mt-3">
+                  <strong>description</strong> <span class="text-secondary">string</span><br>
+                  The transfer's description, as provided by the user.
+                </p>
+                <p class="mt-3">
+                  <strong>initiatedAt</strong> <span class="text-secondary">string</span><br>
+                  Time at which the transfer was initiated, ISO 8601 formatted.
+                </p>
+                <p class="mt-3">
+                  <strong>completedAt</strong> <span class="text-secondary">string</span><br>
+                  Time at which the transfer was completed, ISO 8601 formatted.
+                </p>
+                <p class="mt-3">
+                  <strong>failedAt</strong> <span class="text-secondary">string</span><br>
+                  Time at which the transfer failed, ISO 8601 formatted.
+                </p>
+              </div>
+              <div class="col">
+                <pre>
+                  <code class="json">
+{
+  "id": 1,
+  "status": "complete",
+  "originAccount": 111,
+  "targetAccount": 212,
+  "amount": 10000,
+  "description": "An example of a completed transfer",
+  "initiatedAt": "2019-05-20T12:53:38-04:00",
+  "completedAt": "2019-05-22T12:00:00-04:00",
+  "failedAt": null
+}
+                  </code>
+                </pre>
+              </div>
+            </div>
+          </div>
+          <div class="container pt-5">
+            <div class="row mt-5">
+              <div class="col">
+                <h3 id="likes">Likes</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p class="mt-3">
+                  The <code>Like</code> object represents likes within the system. Likes are created by users and associated with transfers.
+                </p>
+              </div>
+              <div class="col">
+                <pre>
+                  <code>
+   GET /likes
+  POST /likes
+   GET /likes/:id
+   PUT /likes/:id
+                  </code>
+                </pre>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <p class="mt-3">
+                  <strong>id</strong> <span class="text-secondary">integer</span><br>
+                  Unique identifier for the object.
+                </p>
+                <p class="mt-3">
+                  <strong>user</strong> <span class="text-secondary">integer</span><br>
+                  The ID of the <code>User</code> that created the object.
+                </p>
+                <p class="mt-3">
+                  <strong>transfer</strong> <span class="text-secondary">integer</span><br>
+                  The ID of the <code>Transfer</code> associated with the object.
+                </p>
+              </div>
+              <div class="col">
+                <pre>
+                  <code class="json">
+{
+  "id": 134,
+  "user": 1,
+  "transfer": 15
+}
+                  </code>
+                </pre>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
