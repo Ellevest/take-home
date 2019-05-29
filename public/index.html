@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/github.min.css" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <title>Ellevest Take Home</title>
+    <link rel="shortcut icon" href="favicon.ico">
+  </head>
+  <body class="h-100 d-flex flex-column">
+    <main>
+      <div class="container">
+        <div class="row">
+          <h1>Ellevest Take Home</h1>
+        </div>
+        <div class="row mt-5">
+          <p>
+            This exercise uses an API, please review the documentation <a href="api-docs.html">here</a>.
+          </p>
+          <p>
+            Thank you for your interest in Ellevest! For this exercise, you'll be working to build part of a "Venmo-like" system in two parts. In Part I you'll build the data for a a "social" transactions feed. In Part II, you'll implment a method for sending a new payment through the API. The API referenced above provides endpoints for Transactions, Accounts, Users, and Likes and includes all the information you'll need to successfully complete this exercise. While not truely "live" this API supports GET, POST, and PUT operations for all resources.
+          </p>
+          <p>
+            You may use the language of your choice for this exercise but your implementation should be runnable. The exercise should take you no more than two hours to complete.
+          </p>
+        </div>
+        <div class="row">
+          <h2>Part I</h2>
+          <p>
+            Using the API, implement a method to build the data for a "social" transactions feed, combining information from whichever resources are necessary. Your method should return an Array of Objects (Hashes, Dictionaries, etc.) with the following information:
+          </p>
+        </div>
+          <div class="row">
+            <pre style="width:100%;">
+              <code class="json">[
+  {
+    "originUserName": "John Smith",
+    "targetUserName": "Sallie Someone",
+    "amount": 54.99,
+    "description": "For drinks and dinner",
+    "likesCount": 2,
+  },
+  ...
+]
+            </code>
+          </pre>
+        </div>
+        <div class="row">
+          <h2>Part II</h2>
+          <p>
+            Using the API, implement a method to create a new Transfer between two users. Before creating the Transfer, your method should confirm that the funds are available in the origin Account. This method should return the new Transfer Object.
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        This exercise uses <a href="https://github.com/typicode/json-server/">JSON Server</a>.
+      </div>
+    </footer>
+  </body>
+</html>
