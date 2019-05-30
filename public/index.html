@@ -15,19 +15,19 @@
         </div>
         <div class="row mt-5">
           <p>
+            Thank you for your interest in Ellevest! For this exercise, you'll be working to build part of a "Venmo-like" system of payments between users. In Part I you'll build the data for a "social" payments feed. In Part II, you'll implement a method for sending a new payment through the API. The API referenced above provides endpoints for Transfers, Accounts, Users, and Likes and includes all the information you'll need to successfully complete this exercise. While not truely "live" this API supports GET, POST, and PUT operations for all resources.
+          </p>
+          <p>
             This exercise uses an API, please review the documentation <a href="api-docs.html" target="_blank">here</a>. The base URL for the API is the URL for this page (ie. if the URL for this page is <code>https://ellevest-take-home.glitch.me</code> the Transfers API endpoint would be <code>https://ellevest-take-home.glitch.me/transfers</code>).
           </p>
           <p>
-            Thank you for your interest in Ellevest! For this exercise, you'll be working to build part of a "Venmo-like" system of payments between users. In Part I you'll build the data for a "social" payments feed. In Part II, you'll implement a method for sending a new payment through the API. The API referenced above provides endpoints for Transactions, Accounts, Users, and Likes and includes all the information you'll need to successfully complete this exercise. While not truely "live" this API supports GET, POST, and PUT operations for all resources.
-          </p>
-          <p>
-            You may use the language of your choice for this exercise and your implementation should be runnable. The exercise should take you no more than two hours to complete. When you're done, please email <a href="mailto:people@ellevest.com">people@ellevest.com</a> with your attached solution.
+            You may use the language of your choice for this exercise and include any additional libraries you require to complete the task. Your implementation should have valid syntax and be excutable. No need to spend more than two hours working on the exercise – it's alright if you have not completed both parts within that time frame. When you're done, please email <a href="mailto:people@ellevest.com">people@ellevest.com</a> with your attached solution. Please reach out using the same email address if you have any questions or concerns.
           </p>
         </div>
         <div class="row">
           <h2>Part I</h2>
           <p>
-            Using the API, implement a method to build the data for a "social" transactions feed, combining information from whichever API resources are necessary. Transactions with a "failed" status should be excluded from the feed. Your method should return an Array of Objects (Hashes, Dictionaries, etc.) with the following information:
+            Using the API, implement a method to build the data for a "social" transfers feed, combining information from whichever API resources are necessary. Transfers with a "failed" status should be excluded from the feed. Your method should return an Array of Objects (Hashes, Dictionaries, etc.) with the following information:
           </p>
         </div>
           <div class="row">
@@ -35,11 +35,11 @@
               <code class="json">
 [
   {
-    "originUserName": "John Smith",
-    "targetUserName": "Sallie Someone",
-    "amount": 54.99,
-    "description": "For drinks and dinner",
-    "likesCount": 2
+    "originUserName": "John Smith",         // Full name of User associated with origin Account
+    "targetUserName": "Sallie Someone",     // Full name of User associated with target Account
+    "amount": 54.99,                        // Amount in dollars
+    "description": "For drinks and dinner", // Transfer description
+    "likesCount": 2                         // Number of likes for this Transfer
   },
   ...
 ]
@@ -49,8 +49,22 @@
         <div class="row">
           <h2>Part II</h2>
           <p>
-            Using the API, implement a method to create a new Transfer between two users. Before creating the Transfer, your method should confirm that the funds are available in the origin Account. This method should return the new Transfer Object.
+            Using the API, implement a method to create a new Transfer between two users. This method should take arugments corresponding to the attributes of the Transfer resource. Before creating the Transfer, your method should confirm that the funds are available in the origin Account. This method should return the new Transfer as an Object. To test, create a Transfer using the following set of data:
           </p>
+        </div>
+        <div class="row">
+          <pre style="width:100%">
+            <code class="json">
+{
+  "originAccount": 3,
+  "targetAccount": 1,
+  "amount": 1230,
+  "description": "Thanks for the laughs!",
+  "status": "initiated",
+  "initiatedAt": "2019-05-30T12:53:38-04:00" // For an extra challenge, set this value to the current time
+}
+            </code>
+          </pre>
         </div>
       </div>
     </main>

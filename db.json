@@ -4,21 +4,24 @@
       "id": 1,
       "firstName": "Aaron",
       "lastName": "Howard",
-      "transfers": [],
-      "likes": []
+      "accounts": [1, 2],
+      "transfers": [1, 2, 3],
+      "likes": [4]
     },
     {
       "id": 2,
       "firstName": "Cassie",
       "lastName": "Perez",
-      "transfers": [],
-      "likes": []
+      "accounts": [3],
+      "transfers": [5],
+      "likes": [1]
     },
     {
       "id": 3,
       "firstName": "Larry",
       "lastName": "Smith",
-      "transfers": [],
+      "accounts": [4],
+      "transfers": [1, 5],
       "likes": []
     },
 
@@ -26,14 +29,16 @@
       "id": 4,
       "firstName": "Jean",
       "lastName": "Sawyer",
-      "transfers": [],
+      "accounts": [5, 6],
+      "transfers": [3, 4],
       "likes": []
     },
     {
       "id": 5,
       "firstName": "Julie",
       "lastName": "Nimmo",
-      "transfers": [],
+      "accounts": [7],
+      "transfers": [2, 4],
       "likes": []
     }
   ],
@@ -129,9 +134,9 @@
     {
       "id": 5,
       "status": "failed",
-      "originAccount": 7,
-      "targetAccount": 5,
-      "amount": 1000,
+      "originAccount": 4,
+      "targetAccount": 3,
+      "amount": 1257,
       "description": "Drinks :cocktail:",
       "initiatedAt": "2019-02-10T12:53:38-04:00",
       "completedAt": null,
