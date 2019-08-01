@@ -1,4 +1,4 @@
-<rhtml>
+<html>
   <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/github.min.css" crossorigin="anonymous">
@@ -6,6 +6,16 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <title>Ellevest Take Home</title>
     <link rel="shortcut icon" href="favicon.ico">
+    <script>
+      document.addEventListener("DOMContentLoaded", function(e) {
+        var baseUrl  = window.location.origin
+        var elements = document.getElementsByClassName('baseUrl')
+
+        for (i = 0; i < elements.length; i++) {
+          elements[i].innerHTML = baseUrl
+        }
+      })
+    </script>
   </head>
   <body class="h-100 d-flex flex-column">
     <main>
@@ -18,10 +28,16 @@
             Thank you for your interest in Ellevest! For this exercise, you'll be working to build part of a "Venmo-like" system of payments between users. In Part I you'll build the data for a "social" payments feed. In Part II, you'll implement a method for sending a new payment through the API. The API referenced above provides endpoints for Transfers, Accounts, Users, and Likes and includes all the information you'll need to successfully complete this exercise. While not truely "live" this API supports GET, POST, and PUT operations for all resources.
           </p>
           <p>
-            This exercise uses an API, please review the documentation <a href="api-docs.html" target="_blank">here</a>. The base URL for the API is the URL for this page (ie. if the URL for this page is <code>https://ellevest-take-home.glitch.me</code> the Transfers API endpoint would be <code>https://ellevest-take-home.glitch.me/transfers</code>).
+            This exercise uses an API, please review the documentation <a href="api-docs.html" target="_blank">here</a>. The base URL for the API is <code class="baseUrl"></code>. As an example, the Transfers API endpoint would be <code><span class="baseUrl"></span>/transfers</code>.
           </p>
           <p>
-            You may use the language of your choice for this exercise and include any additional libraries you require to complete the task. Your implementation should have valid syntax and be excutable. No need to spend more than two hours working on the exercise – it's alright if you have not completed both parts within that time frame. When you're done, please email <a href="mailto:people@ellevest.com">people@ellevest.com</a> with your attached solution. Please reach out using the same email address if you have any questions or concerns.
+            You may use the language of your choice for this exercise and include any additional libraries you require to complete the task. Your implementation should have valid syntax and be executable. No need to spend more than two hours working on the exercise – it's alright if you have not completed both parts within that time frame. When you're done, please email <a href="mailto:people@ellevest.com">people@ellevest.com</a> with your attached solution. Please reach out using the same email address if you have any questions or concerns.
+          </p>
+          <p>
+            Here at Ellevest we value testable, modular, and clean code. Please treat this exercise as if it's production code and part of a larger system. Consider how your code would fit into the broader context of an application.
+          </p>
+          <p>
+            Be prepared to discuss the trade-offs you made in your implementation and to participate in a peer code-review discussion.
           </p>
         </div>
         <div class="row">
@@ -49,7 +65,7 @@
         <div class="row">
           <h2>Part II</h2>
           <p>
-            Using the API, implement a method to create a new Transfer between two users. This method should take arguments corresponding to the attributes of the Transfer resource. Before creating the Transfer, your method should confirm that the funds are available in the origin Account. This method should return the new Transfer as an Object. To test, create a Transfer using the following set of data:
+            Using the API, implement a method to <a href="api-docs.html#transfers">create</a> a new Transfer between two accounts. This method should take arguments corresponding to the attributes of the Transfer resource. Before creating the Transfer, your method should confirm that the funds are available in the origin Account. Assume the API will handle updating related resources or return an error if there was failure. Here's an example of input data:
           </p>
         </div>
         <div class="row">
@@ -62,6 +78,28 @@
   "description": "Thanks for the laughs!",
   "status": "initiated",
   "initiatedAt": "2019-05-30T12:53:38-04:00" // For an extra challenge, set this value to the current time
+}
+            </code>
+          </pre>
+        </div>
+        <div class="row">
+          <p>
+            This method should output the response from the Transfers API. For example:
+          </p>
+        </div>
+        <div class="row">
+          <pre style="width:100%">
+            <code class="json">
+{
+  "id": 4,
+  "status": "initiated",
+  "originAccount": 3,
+  "targetAccount": 1,
+  "amount": 1230,
+  "description": "Thanks for the laughs!",
+  "initiatedAt": "2019-05-30T12:53:38-04:00",
+  "completedAt": null,
+  "failedAt": null
 }
             </code>
           </pre>
