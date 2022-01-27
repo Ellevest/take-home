@@ -14,7 +14,6 @@
     "lint": "eslint . --ignore-path .gitignore",
     "fix": "npm run lint -- --fix",
     "build": "babel src -d lib && webpack -p",
-    "toc": "markdown-toc -i README.md",
     "prepublishOnly": "npm test && npm run build && pkg-ok"
   },
   "dependencies": {
@@ -53,7 +52,7 @@
     "clean-webpack-plugin": "^2.0.2",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
-    "eslint": "^5.16.0",
+    "eslint": "^8.0.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.17.2",
@@ -63,7 +62,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^2.3.0",
-    "jest": "^24.8.0",
+    "jest": "^27.4.0",
     "markdown-toc": "^1.2.0",
     "mini-css-extract-plugin": "^0.6.0",
     "mkdirp": "^0.5.1",
@@ -107,7 +106,7 @@
   },
   "homepage": "https://github.com/typicode/json-server",
   "engines": {
-    "node": ">16"
+    "node": ">=16"
   },
   "jest": {
     "testURL": "http://localhost/"
